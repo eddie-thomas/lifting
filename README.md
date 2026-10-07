@@ -29,6 +29,7 @@ These `localStorage` keys (all prefixed `lifting:`) persist across reloads:
 | `timer` | Countdown status, duration, and remaining time or end time |
 | `activeWorkout` | The started workout (`{ date, order }`) |
 | `completed` | Finished workouts per date |
+| `runs` | Dates you marked "Did you run today?" |
 | `selectedDate`, `calendarMonth` | Last-opened day and the month shown on the calendar |
 
 To start fresh, clear the site's data in your browser.

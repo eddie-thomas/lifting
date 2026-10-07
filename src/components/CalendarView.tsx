@@ -4,6 +4,7 @@ import ChevronLeftRounded from '@mui/icons-material/ChevronLeftRounded'
 import ChevronRightRounded from '@mui/icons-material/ChevronRightRounded'
 import TodayRounded from '@mui/icons-material/TodayRounded'
 import CheckRounded from '@mui/icons-material/CheckRounded'
+import DirectionsRunRounded from '@mui/icons-material/DirectionsRunRounded'
 import type { LoadedWorkouts } from '../data/loadWorkouts'
 import { dayIntensity } from '../data/loadWorkouts'
 import { INTENSITY_RED } from '../theme'
@@ -17,10 +18,12 @@ interface Props {
   onMonthChange: (month: string) => void
   selectedDate: string | null
   completed: Record<string, number[]>
+  /** Dates marked "Did you run today?". */
+  runs: string[]
   onOpenDay: (date: string) => void
 }
 
-export default function CalendarView({ data, month, onMonthChange, selectedDate, completed, onOpenDay }: Props) {
+export default function CalendarView({ data, month, onMonthChange, selectedDate, completed, runs, onOpenDay }: Props) {
   const today = todayISO()
   const grid = monthGrid(month)
 
@@ -69,6 +72,7 @@ export default function CalendarView({ data, month, onMonthChange, selectedDate,
             const allDone = workoutCount > 0 && (completed[iso]?.length ?? 0) >= workoutCount
             const isToday = iso === today
             const isSelected = iso === selectedDate
+            const ran = runs.includes(iso)
 
             return (
               <ButtonBase
@@ -100,10 +104,13 @@ export default function CalendarView({ data, month, onMonthChange, selectedDate,
                 >
                   {day}
                 </Typography>
-                {entry?.rest_day && (
-                  <Typography sx={{ fontSize: '0.6rem', color: 'text.secondary', lineHeight: 1, mt: 0.25 }}>
-                    rest
-                  </Typography>
+                {(entry?.rest_day || ran) && (
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.25, mt: 0.25 }}>
+                    {ran && <DirectionsRunRounded aria-label="Ran" sx={{ fontSize: 12, color: '#fff' }} />}
+                    {entry?.rest_day && (
+                      <Typography sx={{ fontSize: '0.6rem', color: 'text.secondary', lineHeight: 1 }}>rest</Typography>
+                    )}
+                  </Box>
                 )}
                 {allDone && (
                   <CheckRounded sx={{ position: 'absolute', top: 2, right: 2, fontSize: 12, color: '#fff' }} />

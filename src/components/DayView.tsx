@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import { Box, Chip, Paper, Stack, Typography } from '@mui/material'
+import { Box, Button, Chip, Paper, Stack, Typography } from '@mui/material'
+import DirectionsRunRounded from '@mui/icons-material/DirectionsRunRounded'
 import HotelRounded from '@mui/icons-material/HotelRounded'
 import EventBusyRounded from '@mui/icons-material/EventBusyRounded'
 import type { ActiveWorkout, Workout, WorkoutDay } from '../types'
@@ -15,6 +16,8 @@ interface Props {
   /** The TimerPanel, rendered above the workout stack. */
   timer: ReactNode
   onStartWorkout: (workout: Workout) => void
+  ran: boolean
+  onToggleRan: () => void
 }
 
 function EmptyState({ icon, title, subtitle }: { icon: ReactNode; title: string; subtitle: string }) {
@@ -31,7 +34,7 @@ function EmptyState({ icon, title, subtitle }: { icon: ReactNode; title: string;
   )
 }
 
-export default function DayView({ date, day, active, completedOrders, timer, onStartWorkout }: Props) {
+export default function DayView({ date, day, active, completedOrders, timer, onStartWorkout, ran, onToggleRan }: Props) {
   const isToday = date === todayISO()
   const activeOrder = active?.date === date ? active.order : null
   const workouts = sortedWorkouts(day, activeOrder)
@@ -68,6 +71,7 @@ export default function DayView({ date, day, active, completedOrders, timer, onS
           <Typography variant="h5" sx={{ fontWeight: 700 }}>
             {formatLongDate(date)}
           </Typography>
+          {ran && <DirectionsRunRounded aria-label="Ran this day" sx={{ color: 'primary.main', fontSize: 28 }} />}
           {isToday && <Chip label="Today" size="small" color="primary" />}
         </Box>
         {workouts.length > 0 && !day?.rest_day && (
@@ -78,6 +82,35 @@ export default function DayView({ date, day, active, completedOrders, timer, onS
         )}
       </Box>
       {body}
+
+      {/* Spacer so the fixed run bar never covers the last card. */}
+      <Box sx={{ height: 72 }} />
+      <Box
+        sx={{
+          position: 'fixed',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 'appBar',
+          px: 'max(16px, env(safe-area-inset-left))',
+          pt: 1.5,
+          pb: 'calc(12px + env(safe-area-inset-bottom))',
+          bgcolor: 'rgba(24, 24, 24, 0.92)',
+          backdropFilter: 'blur(8px)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+        }}
+      >
+        <Button
+          fullWidth
+          size="large"
+          variant={ran ? 'outlined' : 'contained'}
+          startIcon={<DirectionsRunRounded />}
+          onClick={onToggleRan}
+          sx={{ display: 'flex', maxWidth: 600, mx: 'auto', py: 1.25, fontSize: '1rem' }}
+        >
+          {ran ? 'You ran! Tap to undo' : 'Did you run today?'}
+        </Button>
+      </Box>
     </Box>
   )
 }

@@ -27,6 +27,7 @@ export default function App() {
   const [selectedDate, setSelectedDate] = usePersistentState<string | null>('selectedDate', null)
   const [active, setActive] = usePersistentState<ActiveWorkout | null>('activeWorkout', null)
   const [completed, setCompleted] = usePersistentState<Record<string, number[]>>('completed', {})
+  const [runs, setRuns] = usePersistentState<string[]>('runs', [])
   const [errorDismissed, setErrorDismissed] = useState(false)
 
   const onComplete = useCallback(() => {
@@ -77,6 +78,9 @@ export default function App() {
     }
   }
 
+  const toggleRan = (date: string) =>
+    setRuns((prev) => (prev.includes(date) ? prev.filter((d) => d !== date) : [...prev, date]))
+
   const handleReset = () => countdown.load(activeWorkout?.duration ?? 0)
 
   let caption = 'Press play or start a workout below'
@@ -114,6 +118,7 @@ export default function App() {
             onMonthChange={setCalendarMonth}
             selectedDate={selectedDate}
             completed={completed}
+            runs={runs}
             onOpenDay={handleOpenDay}
           />
         ) : (
@@ -123,6 +128,8 @@ export default function App() {
             active={active}
             completedOrders={completed[route.date] ?? []}
             onStartWorkout={(w) => handleStartWorkout(route.date, w)}
+            ran={runs.includes(route.date)}
+            onToggleRan={() => toggleRan(route.date)}
             timer={
               <TimerPanel
                 status={countdown.status}
