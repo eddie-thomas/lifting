@@ -1,11 +1,13 @@
 import { useMemo } from 'react'
-import { Box, Button, Paper, Typography } from '@mui/material'
+import { Box, Button, IconButton, Paper, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { LineChart, lineClasses } from '@mui/x-charts/LineChart'
 import { ChartsReferenceLine } from '@mui/x-charts/ChartsReferenceLine'
+import IosShareRounded from '@mui/icons-material/IosShareRounded'
 import ScaleRounded from '@mui/icons-material/ScaleRounded'
 import { PROJECTION_BLUE } from '../theme'
 import { addDays, daysBetween, parseISODate, todayISO } from '../utils/date'
+import { exportWeights } from '../utils/exportWeights'
 import { analyzeWeights, type Weights } from '../utils/weightTrend'
 
 /** How much history the chart shows before today. */
@@ -116,9 +118,16 @@ export default function WeightCard({ weights, goal, onLog }: Props) {
         <Typography variant="h6" sx={{ fontWeight: 600, pl: 0.5 }}>
           Weight
         </Typography>
-        <Button size="small" variant="outlined" startIcon={<ScaleRounded />} onClick={onLog}>
-          {weights[today] != null ? 'Edit today' : 'Log weight'}
-        </Button>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          {latest && (
+            <IconButton size="small" aria-label="Export weights as CSV" onClick={() => exportWeights(weights)}>
+              <IosShareRounded fontSize="small" />
+            </IconButton>
+          )}
+          <Button size="small" variant="outlined" startIcon={<ScaleRounded />} onClick={onLog}>
+            {weights[today] != null ? 'Edit today' : 'Log weight'}
+          </Button>
+        </Box>
       </Box>
 
       {!chart || !latest ? (

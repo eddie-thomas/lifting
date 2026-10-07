@@ -1,67 +1,89 @@
-import { useState } from 'react'
-import { Box, Chip, Collapse, Divider, IconButton, Paper, Typography } from '@mui/material'
-import PlayCircleFilledRounded from '@mui/icons-material/PlayCircleFilledRounded'
-import CheckCircleRounded from '@mui/icons-material/CheckCircleRounded'
-import TimerOutlined from '@mui/icons-material/TimerOutlined'
-import BoltRounded from '@mui/icons-material/BoltRounded'
-import FitnessCenterRounded from '@mui/icons-material/FitnessCenterRounded'
-import type { Workout } from '../types'
+import { useState } from "react";
+import {
+  Box,
+  Chip,
+  Collapse,
+  Divider,
+  IconButton,
+  Paper,
+  Typography,
+} from "@mui/material";
+import PlayCircleFilledRounded from "@mui/icons-material/PlayCircleFilledRounded";
+import CheckCircleRounded from "@mui/icons-material/CheckCircleRounded";
+import TimerOutlined from "@mui/icons-material/TimerOutlined";
+import BoltRounded from "@mui/icons-material/BoltRounded";
+import FitnessCenterRounded from "@mui/icons-material/FitnessCenterRounded";
+import type { Workout } from "../types";
 
 interface Props {
-  workout: Workout
-  active: boolean
-  done: boolean
-  onStart: () => void
+  workout: Workout;
+  active: boolean;
+  done: boolean;
+  onStart: () => void;
 }
 
-const imageUrl = (src: string) => import.meta.env.BASE_URL + src.replace(/^\/+/, '')
+const imageUrl = (src: string) =>
+  import.meta.env.BASE_URL + src.replace(/^\/+/, "");
 
 const countChipSx = {
   height: 34,
-  fontSize: '1rem',
+  fontSize: "1rem",
   fontWeight: 700,
-  bgcolor: 'rgba(255,255,255,0.08)',
-  '& .MuiChip-label': { px: 1.5 },
-}
+  bgcolor: "rgba(255,255,255,0.08)",
+  "& .MuiChip-label": { px: 1.5 },
+};
 
 export default function WorkoutCard({ workout, active, done, onStart }: Props) {
-  const [imgFailed, setImgFailed] = useState(false)
+  const [imgFailed, setImgFailed] = useState(false);
 
   return (
     <Paper
       sx={{
         p: 2,
-        bgcolor: active ? '#2a2a2a' : 'background.paper',
-        borderLeft: '4px solid',
-        borderLeftColor: active ? 'primary.main' : 'transparent',
-        transition: 'background-color 200ms',
+        bgcolor: active ? "#2a2a2a" : "background.paper",
+        borderLeft: "4px solid",
+        borderLeftColor: active ? "primary.main" : "transparent",
+        ...(active && { borderTopLeftRadius: 4, borderBottomLeftRadius: 4 }),
+        transition: "background-color 200ms",
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
         <Box sx={{ flex: 1, minWidth: 0 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
-            {done && <CheckCircleRounded sx={{ color: 'success.main', fontSize: 20 }} />}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
+            {done && (
+              <CheckCircleRounded
+                sx={{ color: "success.main", fontSize: 20 }}
+              />
+            )}
             <Typography variant="h6" sx={{ fontWeight: 600, lineHeight: 1.25 }}>
               {workout.title}
             </Typography>
           </Box>
 
-          <Box sx={{ display: 'flex', gap: 1, mt: 1, flexWrap: 'wrap' }}>
+          <Box sx={{ display: "flex", gap: 1, mt: 1, flexWrap: "wrap" }}>
             <Chip label={`${workout.sets} sets`} sx={countChipSx} />
             <Chip label={`${workout.reps} reps`} sx={countChipSx} />
           </Box>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mt: 1, color: 'text.secondary' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1.5,
+              mt: 1,
+              color: "text.secondary",
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
               <TimerOutlined sx={{ fontSize: 16 }} />
               <Typography variant="caption">{workout.duration} min</Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
               <BoltRounded sx={{ fontSize: 16 }} />
               <Typography variant="caption">{workout.intensity}/9</Typography>
             </Box>
             {workout.weight_needed && (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                 <FitnessCenterRounded sx={{ fontSize: 16 }} />
                 <Typography variant="caption">Weights</Typography>
               </Box>
@@ -72,8 +94,12 @@ export default function WorkoutCard({ workout, active, done, onStart }: Props) {
         <IconButton
           onClick={onStart}
           disabled={active}
-          aria-label={active ? 'Current workout' : `Start ${workout.title}`}
-          sx={{ p: 0.5, color: 'primary.main', '&.Mui-disabled': { color: 'primary.main', opacity: 0.45 } }}
+          aria-label={active ? "Current workout" : `Start ${workout.title}`}
+          sx={{
+            p: 0.5,
+            color: "primary.main",
+            "&.Mui-disabled": { color: "primary.main", opacity: 0.45 },
+          }}
         >
           <PlayCircleFilledRounded sx={{ fontSize: 48 }} />
         </IconButton>
@@ -89,14 +115,33 @@ export default function WorkoutCard({ workout, active, done, onStart }: Props) {
             alt={workout.title}
             loading="lazy"
             onError={() => setImgFailed(true)}
-            sx={{ display: 'block', width: '100%', borderRadius: 2, mb: 2, bgcolor: '#161616' }}
+            sx={{
+              display: "block",
+              width: "100%",
+              borderRadius: 2,
+              mb: 2,
+              bgcolor: "#161616",
+            }}
           />
         )}
 
         {workout.description.length > 0 && (
-          <Box component="ol" sx={{ m: 0, pl: 3, display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Box
+            component="ol"
+            sx={{
+              m: 0,
+              pl: 3,
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+            }}
+          >
             {workout.description.map((step, i) => (
-              <Typography component="li" key={i} sx={{ lineHeight: 1.5, pl: 0.5 }}>
+              <Typography
+                component="li"
+                key={i}
+                sx={{ lineHeight: 1.5, pl: 0.5 }}
+              >
                 {step}
               </Typography>
             ))}
@@ -104,16 +149,26 @@ export default function WorkoutCard({ workout, active, done, onStart }: Props) {
         )}
 
         {workout.tips_and_tricks && (
-          <Box sx={{ mt: 2, p: 1.5, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.04)' }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', lineHeight: 1.5 }}>
+          <Box
+            sx={{
+              mt: 2,
+              p: 1.5,
+              borderRadius: 2,
+              bgcolor: "rgba(255,255,255,0.04)",
+            }}
+          >
+            <Typography
+              variant="overline"
+              sx={{ color: "primary.main", lineHeight: 1.5 }}
+            >
               Tips & tricks
             </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
               {workout.tips_and_tricks}
             </Typography>
           </Box>
         )}
       </Collapse>
     </Paper>
-  )
+  );
 }
