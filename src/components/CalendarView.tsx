@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Box, Button, ButtonBase, IconButton, Paper, Typography } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import ChevronLeftRounded from '@mui/icons-material/ChevronLeftRounded'
@@ -7,8 +8,11 @@ import CheckRounded from '@mui/icons-material/CheckRounded'
 import DirectionsRunRounded from '@mui/icons-material/DirectionsRunRounded'
 import type { LoadedWorkouts } from '../data/loadWorkouts'
 import { dayIntensity } from '../data/loadWorkouts'
-import { INTENSITY_RED } from '../theme'
+import { INTENSITY_RED, intensityAlpha } from '../theme'
 import { formatMonth, monthGrid, shiftMonth, todayISO } from '../utils/date'
+
+/** Intensity ratios shown in the legend, spaced where the curve actually changes. */
+const LEGEND_RATIOS = [0.4, 0.65, 0.8, 0.9, 1]
 
 const WEEKDAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 
@@ -21,9 +25,11 @@ interface Props {
   /** Dates marked "Did you run today?". */
   runs: string[]
   onOpenDay: (date: string) => void
+  /** The WeightCard, rendered below the calendar. */
+  weight: ReactNode
 }
 
-export default function CalendarView({ data, month, onMonthChange, selectedDate, completed, runs, onOpenDay }: Props) {
+export default function CalendarView({ data, month, onMonthChange, selectedDate, completed, runs, onOpenDay, weight }: Props) {
   const today = todayISO()
   const grid = monthGrid(month)
 
@@ -85,7 +91,7 @@ export default function CalendarView({ data, month, onMonthChange, selectedDate,
                   borderRadius: 2,
                   display: 'flex',
                   flexDirection: 'column',
-                  bgcolor: intensity > 0 ? alpha(INTENSITY_RED, 0.15 + 0.7 * ratio) : 'rgba(255,255,255,0.03)',
+                  bgcolor: intensity > 0 ? alpha(INTENSITY_RED, intensityAlpha(ratio)) : 'rgba(255,255,255,0.03)',
                   opacity: inMonth ? 1 : 0.35,
                   outline: isSelected ? '2px solid rgba(255,255,255,0.35)' : 'none',
                   outlineOffset: -2,
@@ -124,14 +130,16 @@ export default function CalendarView({ data, month, onMonthChange, selectedDate,
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             Easier
           </Typography>
-          {[0.15, 0.32, 0.5, 0.67, 0.85].map((a) => (
-            <Box key={a} sx={{ width: 16, height: 16, borderRadius: 0.75, bgcolor: alpha(INTENSITY_RED, a) }} />
+          {LEGEND_RATIOS.map((r) => (
+            <Box key={r} sx={{ width: 16, height: 16, borderRadius: 0.75, bgcolor: alpha(INTENSITY_RED, intensityAlpha(r)) }} />
           ))}
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             Harder
           </Typography>
         </Box>
       </Paper>
+
+      {weight}
     </Box>
   )
 }

@@ -1,9 +1,11 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Alert, Box } from '@mui/material'
 import NavBar from './components/NavBar'
 import CalendarView from './components/CalendarView'
 import DayView from './components/DayView'
 import TimerPanel from './components/TimerPanel'
+import WeightCard from './components/WeightCard'
+import WeightDialog from './components/WeightDialog'
 import { loadWorkouts, sortedWorkouts } from './data/loadWorkouts'
 import { useCountdown } from './hooks/useCountdown'
 import { useHashRoute } from './hooks/useHashRoute'
@@ -11,6 +13,7 @@ import { usePersistentState } from './hooks/usePersistentState'
 import type { ActiveWorkout, Workout } from './types'
 import { timerFinishedAlert, unlockAudio } from './utils/alert'
 import { monthKey, parseISODate, todayISO } from './utils/date'
+import type { Weights } from './utils/weightTrend'
 
 const DATA = loadWorkouts()
 
@@ -28,7 +31,25 @@ export default function App() {
   const [active, setActive] = usePersistentState<ActiveWorkout | null>('activeWorkout', null)
   const [completed, setCompleted] = usePersistentState<Record<string, number[]>>('completed', {})
   const [runs, setRuns] = usePersistentState<string[]>('runs', [])
+  const [weights, setWeights] = usePersistentState<Weights>('weights', {})
+  const [weightGoal, setWeightGoal] = usePersistentState<number | null>('weightGoal', null)
+  const [weightPromptedOn, setWeightPromptedOn] = usePersistentState<string | null>('weightPromptedOn', null)
+  const [weighDate, setWeighDate] = useState<string | null>(null)
   const [errorDismissed, setErrorDismissed] = useState(false)
+
+  // Ask for the morning weigh-in once a day: on load, and when the app comes back
+  // to the foreground (a phone can leave it open overnight).
+  useEffect(() => {
+    const prompt = () => {
+      const today = todayISO()
+      if (document.visibilityState !== 'visible' || weights[today] != null || weightPromptedOn === today) return
+      setWeightPromptedOn(today)
+      setWeighDate(today)
+    }
+    prompt()
+    document.addEventListener('visibilitychange', prompt)
+    return () => document.removeEventListener('visibilitychange', prompt)
+  }, [weights, weightPromptedOn, setWeightPromptedOn])
 
   const onComplete = useCallback(() => {
     timerFinishedAlert()
@@ -81,6 +102,21 @@ export default function App() {
   const toggleRan = (date: string) =>
     setRuns((prev) => (prev.includes(date) ? prev.filter((d) => d !== date) : [...prev, date]))
 
+  const saveWeight = (date: string, weight: number, goal: number | null) => {
+    setWeights((prev) => ({ ...prev, [date]: weight }))
+    setWeightGoal(goal)
+    setWeighDate(null)
+  }
+
+  const deleteWeight = (date: string) => {
+    setWeights((prev) => {
+      const next = { ...prev }
+      delete next[date]
+      return next
+    })
+    setWeighDate(null)
+  }
+
   const handleReset = () => countdown.load(activeWorkout?.duration ?? 0)
 
   let caption = 'Press play or start a workout below'
@@ -120,6 +156,7 @@ export default function App() {
             completed={completed}
             runs={runs}
             onOpenDay={handleOpenDay}
+            weight={<WeightCard weights={weights} goal={weightGoal} onLog={() => setWeighDate(todayISO())} />}
           />
         ) : (
           <DayView
@@ -130,6 +167,8 @@ export default function App() {
             onStartWorkout={(w) => handleStartWorkout(route.date, w)}
             ran={runs.includes(route.date)}
             onToggleRan={() => toggleRan(route.date)}
+            weight={weights[route.date]}
+            onLogWeight={() => setWeighDate(route.date)}
             timer={
               <TimerPanel
                 status={countdown.status}
@@ -143,6 +182,15 @@ export default function App() {
           />
         )}
       </Box>
+
+      <WeightDialog
+        date={weighDate}
+        weights={weights}
+        goal={weightGoal}
+        onClose={() => setWeighDate(null)}
+        onSave={saveWeight}
+        onDelete={deleteWeight}
+      />
     </Box>
   )
 }

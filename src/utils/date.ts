@@ -13,6 +13,21 @@ export function parseISODate(iso: string): Date {
 
 export const todayISO = () => toISODate(new Date())
 
+/** `iso` shifted by `days` calendar days. */
+export function addDays(iso: string, days: number): string {
+  const d = parseISODate(iso)
+  return toISODate(new Date(d.getFullYear(), d.getMonth(), d.getDate() + days))
+}
+
+/** Whole calendar days from `a` to `b` (UTC math, so DST shifts don't round wrong). */
+export function daysBetween(a: string, b: string): number {
+  const utc = (iso: string) => {
+    const [y, m, d] = iso.split('-').map(Number)
+    return Date.UTC(y, m - 1, d)
+  }
+  return Math.round((utc(b) - utc(a)) / 86_400_000)
+}
+
 /** "YYYY-MM" key for the month containing `iso`. */
 export const monthKey = (iso: string) => iso.slice(0, 7)
 

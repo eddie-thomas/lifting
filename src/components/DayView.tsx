@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react'
-import { Box, Button, Chip, Paper, Stack, Typography } from '@mui/material'
+import { Box, Button, Chip, IconButton, Paper, Stack, Typography } from '@mui/material'
 import DirectionsRunRounded from '@mui/icons-material/DirectionsRunRounded'
 import HotelRounded from '@mui/icons-material/HotelRounded'
 import EventBusyRounded from '@mui/icons-material/EventBusyRounded'
+import ScaleRounded from '@mui/icons-material/ScaleRounded'
 import type { ActiveWorkout, Workout, WorkoutDay } from '../types'
 import { dayIntensity, sortedWorkouts } from '../data/loadWorkouts'
 import { formatLongDate, todayISO } from '../utils/date'
@@ -18,6 +19,9 @@ interface Props {
   onStartWorkout: (workout: Workout) => void
   ran: boolean
   onToggleRan: () => void
+  /** This day's weigh-in in lb, if logged. */
+  weight: number | undefined
+  onLogWeight: () => void
 }
 
 function EmptyState({ icon, title, subtitle }: { icon: ReactNode; title: string; subtitle: string }) {
@@ -34,8 +38,20 @@ function EmptyState({ icon, title, subtitle }: { icon: ReactNode; title: string;
   )
 }
 
-export default function DayView({ date, day, active, completedOrders, timer, onStartWorkout, ran, onToggleRan }: Props) {
+export default function DayView({
+  date,
+  day,
+  active,
+  completedOrders,
+  timer,
+  onStartWorkout,
+  ran,
+  onToggleRan,
+  weight,
+  onLogWeight,
+}: Props) {
   const isToday = date === todayISO()
+  const isFuture = date > todayISO()
   const activeOrder = active?.date === date ? active.order : null
   const workouts = sortedWorkouts(day, activeOrder)
   const totalMinutes = workouts.reduce((sum, w) => sum + (w.duration || 0), 0)
@@ -73,6 +89,16 @@ export default function DayView({ date, day, active, completedOrders, timer, onS
           </Typography>
           {ran && <DirectionsRunRounded aria-label="Ran this day" sx={{ color: 'primary.main', fontSize: 28 }} />}
           {isToday && <Chip label="Today" size="small" color="primary" />}
+          {!isFuture &&
+            (weight != null ? (
+              <Button size="small" startIcon={<ScaleRounded />} onClick={onLogWeight} sx={{ ml: 'auto', flexShrink: 0 }}>
+                {weight} lb
+              </Button>
+            ) : (
+              <IconButton onClick={onLogWeight} aria-label="Log weight" sx={{ ml: 'auto', color: 'text.secondary' }}>
+                <ScaleRounded />
+              </IconButton>
+            ))}
         </Box>
         {workouts.length > 0 && !day?.rest_day && (
           <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }}>

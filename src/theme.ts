@@ -2,6 +2,17 @@ import { createTheme } from '@mui/material/styles'
 
 export const INTENSITY_RED = '#e53935'
 
+/**
+ * Opacity of a day's red, GitHub-contribution style: the curve is steep so only
+ * days near the hardest one look strong, and light days fade to nearly nothing.
+ * `ratio` is the day's intensity divided by the hardest day's (0–1).
+ */
+export function intensityAlpha(ratio: number): number {
+  return 0.06 + 0.89 * Math.min(1, Math.max(0, ratio)) ** 6
+}
+/** Projected-weight line; checked against primary red for colorblind separation. */
+export const PROJECTION_BLUE = '#4c97dc'
+
 export const theme = createTheme({
   palette: {
     mode: 'dark',

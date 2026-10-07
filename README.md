@@ -30,6 +30,8 @@ These `localStorage` keys (all prefixed `lifting:`) persist across reloads:
 | `activeWorkout` | The started workout (`{ date, order }`) |
 | `completed` | Finished workouts per date |
 | `runs` | Dates you marked "Did you run today?" |
+| `weights`, `weightGoal` | Daily weigh-ins in lb (by date) and the optional goal weight |
+| `weightPromptedOn` | Last date the morning "How much do you weigh?" dialog opened on its own |
 | `selectedDate`, `calendarMonth` | Last-opened day and the month shown on the calendar |
 
 To start fresh, clear the site's data in your browser.
