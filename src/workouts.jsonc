@@ -1,0 +1,80 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  WORKOUT DATA
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  This file is the app's only data source. It must be an array of "day"
+ *  objects. Comments and trailing commas are allowed.
+ *
+ *  Day object
+ *  ----------
+ *    date        string    REQUIRED. "YYYY-MM-DD" (e.g. "2026-10-07"). One entry
+ *                          per date; if a date is repeated, the last one wins.
+ *    rest_day    boolean   REQUIRED. true = rest day (shown as rest on the
+ *                          calendar; any `workout` list is ignored).
+ *    workout     array     OPTIONAL. List of workout objects (below).
+ *
+ *  Workout object
+ *  --------------
+ *    title            string    Name of the exercise.
+ *    duration         number    Minutes. This is what the countdown timer runs.
+ *    weight_needed    boolean   Shows a dumbbell icon when true.
+ *    intensity        number    0-9 (9 = hardest). A day's intensities are
+ *                               summed; the calendar shades each day red
+ *                               relative to the hardest day in this file.
+ *    description      string[]  Ordered, step-by-step instructions.
+ *    tips_and_tricks  string    Free-form tips shown under the steps.
+ *    img_src          string    Path RELATIVE TO `public/`, no leading slash.
+ *                               "images/goblet-squat.jpg" → public/images/goblet-squat.jpg
+ *    reps             number    Reps per set.
+ *    sets             number    Number of sets.
+ *    order            number    Order the workouts are listed/done in that day.
+ *                               Must be unique within a day.
+ *
+ *  Example (copy into the array below and edit):
+ *  ---------------------------------------------
+ *  {
+ *    "date": "2026-10-07",
+ *    "rest_day": false,
+ *    "workout": [
+ *      {
+ *        "title": "Goblet Squat",
+ *        "duration": 10,
+ *        "weight_needed": true,
+ *        "intensity": 6,
+ *        "description": [
+ *          "Hold a dumbbell vertically against your chest with both hands.",
+ *          "Stand with feet slightly wider than shoulder-width, toes turned out.",
+ *          "Sit your hips down and back until your thighs are at least parallel.",
+ *          "Drive through your heels to stand back up. That's one rep."
+ *        ],
+ *        "tips_and_tricks": "Keep your chest up and elbows inside your knees at the bottom.",
+ *        "img_src": "images/goblet-squat.jpg",
+ *        "reps": 10,
+ *        "sets": 4,
+ *        "order": 1
+ *      },
+ *      {
+ *        "title": "Push-up",
+ *        "duration": 8,
+ *        "weight_needed": false,
+ *        "intensity": 4,
+ *        "description": [
+ *          "Start in a high plank, hands just outside shoulder-width.",
+ *          "Lower your chest to just above the floor, elbows at ~45°.",
+ *          "Press back up to full arm extension."
+ *        ],
+ *        "tips_and_tricks": "Squeeze your glutes to keep your body in a straight line.",
+ *        "img_src": "images/push-up.jpg",
+ *        "reps": 12,
+ *        "sets": 3,
+ *        "order": 2
+ *      }
+ *    ]
+ *  },
+ *  {
+ *    "date": "2026-10-08",
+ *    "rest_day": true
+ *  }
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+[]
