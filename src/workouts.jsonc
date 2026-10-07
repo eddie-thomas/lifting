@@ -17,7 +17,6 @@
  *  --------------
  *    title            string    Name of the exercise.
  *    duration         number    Minutes. This is what the countdown timer runs.
- *    weight_needed    boolean   Shows a dumbbell icon when true.
  *    intensity        number    0-9 (9 = hardest). A day's intensities are
  *                               summed; the calendar shades each day red
  *                               relative to the hardest day in this file.
@@ -42,7 +41,6 @@
  *      {
  *        "title": "Goblet Squat",
  *        "duration": 10,
- *        "weight_needed": true,
  *        "intensity": 6,
  *        "description": [
  *          "Hold a dumbbell vertically against your chest with both hands.",
@@ -60,7 +58,6 @@
  *      {
  *        "title": "Push-up",
  *        "duration": 8,
- *        "weight_needed": false,
  *        "intensity": 4,
  *        "description": [
  *          "Start in a high plank, hands just outside shoulder-width.",
@@ -90,7 +87,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -112,7 +108,6 @@
       {
         "title": "Goblet Squat",
         "duration": 8,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 7,
         "description": [
@@ -128,7 +123,6 @@
       {
         "title": "Bulgarian Split Squat",
         "duration": 7,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 7,
         "description": [
@@ -144,7 +138,6 @@
       {
         "title": "Dumbbell Romanian Deadlift",
         "duration": 7,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -160,7 +153,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -176,7 +168,6 @@
       {
         "title": "Dead Bug",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -192,7 +183,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -218,7 +208,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -239,7 +228,6 @@
       {
         "title": "Standing Dumbbell Overhead Press",
         "duration": 8,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -255,7 +243,6 @@
       {
         "title": "Dumbbell Fly (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -271,7 +258,6 @@
       {
         "title": "Feet-Elevated Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -286,7 +272,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 4,
         "description": [
@@ -302,7 +287,6 @@
       {
         "title": "Dumbbell Skull Crusher (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -318,7 +302,6 @@
       {
         "title": "Band Pull-Apart",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 2,
         "description": [
@@ -333,7 +316,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -359,7 +341,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -380,7 +361,6 @@
       {
         "title": "Chin-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -396,7 +376,6 @@
       {
         "title": "Dumbbell Bent-Over Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -412,7 +391,6 @@
       {
         "title": "Band Straight-Arm Pulldown",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -428,7 +406,6 @@
       {
         "title": "Dumbbell Shrug",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -444,7 +421,6 @@
       {
         "title": "Hammer Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 4,
         "description": [
@@ -460,7 +436,6 @@
       {
         "title": "Hanging Leg Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -476,7 +451,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -502,7 +476,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -524,7 +497,6 @@
       {
         "title": "Dumbbell Reverse Lunge",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -540,7 +512,6 @@
       {
         "title": "Single-Leg Romanian Deadlift",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -556,7 +527,6 @@
       {
         "title": "Heels-Elevated Goblet Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 6,
         "description": [
@@ -571,7 +541,6 @@
       {
         "title": "Single-Leg Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -587,7 +556,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -602,7 +570,6 @@
       {
         "title": "Side Plank Hip Dip",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -617,7 +584,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -643,7 +609,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -674,7 +639,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -695,7 +659,6 @@
       {
         "title": "Dumbbell Press (Coffee Table)",
         "duration": 8,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -712,7 +675,6 @@
       {
         "title": "Deficit Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -729,7 +691,6 @@
       {
         "title": "Seated Dumbbell Shoulder Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 6,
         "description": [
@@ -745,7 +706,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 4,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 4,
         "description": [
@@ -761,7 +721,6 @@
       {
         "title": "Chair Dip",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -777,7 +736,6 @@
       {
         "title": "Overhead Dumbbell Triceps Extension",
         "duration": 4,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -793,7 +751,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -819,7 +776,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -840,7 +796,6 @@
       {
         "title": "Pull-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -856,7 +811,6 @@
       {
         "title": "One-Arm Dumbbell Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 6,
         "description": [
@@ -872,7 +826,6 @@
       {
         "title": "Band Face Pull",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -888,7 +841,6 @@
       {
         "title": "Dumbbell Rear Delt Fly",
         "duration": 4,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 4,
         "description": [
@@ -904,7 +856,6 @@
       {
         "title": "Dumbbell Biceps Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 4,
         "description": [
@@ -920,7 +871,6 @@
       {
         "title": "Hanging Knee Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -936,7 +886,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -962,7 +911,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -984,7 +932,6 @@
       {
         "title": "1.5-Rep Goblet Squat",
         "duration": 9,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 7,
         "description": [
@@ -1000,7 +947,6 @@
       {
         "title": "Dumbbell Step-Up",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -1016,7 +962,6 @@
       {
         "title": "B-Stance Romanian Deadlift",
         "duration": 8,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 6,
         "description": [
@@ -1032,7 +977,6 @@
       {
         "title": "Seated Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -1048,7 +992,6 @@
       {
         "title": "Bird Dog",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -1064,7 +1007,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1090,7 +1032,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1111,7 +1052,6 @@
       {
         "title": "Single-Arm Overhead Press",
         "duration": 9,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -1127,7 +1067,6 @@
       {
         "title": "Squeeze Press (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 5,
         "description": [
@@ -1143,7 +1082,6 @@
       {
         "title": "Pike Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -1159,7 +1097,6 @@
       {
         "title": "Band Lateral Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -1175,7 +1112,6 @@
       {
         "title": "Close-Grip Dumbbell Press (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 5,
         "description": [
@@ -1191,7 +1127,6 @@
       {
         "title": "Prone Y Raise",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 2,
         "description": [
@@ -1207,7 +1142,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1233,7 +1167,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1254,7 +1187,6 @@
       {
         "title": "Mixed-Grip Pull-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -1270,7 +1202,6 @@
       {
         "title": "Dead-Stop Dumbbell Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -1286,7 +1217,6 @@
       {
         "title": "Dumbbell Pullover (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -1302,7 +1232,6 @@
       {
         "title": "Single-Arm Heavy Shrug",
         "duration": 4,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 4,
         "description": [
@@ -1318,7 +1247,6 @@
       {
         "title": "Cross-Body Hammer Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 4,
         "description": [
@@ -1334,7 +1262,6 @@
       {
         "title": "V-Up",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -1350,7 +1277,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1376,7 +1302,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1398,7 +1323,6 @@
       {
         "title": "Dumbbell Walking Lunge",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -1414,7 +1338,6 @@
       {
         "title": "Goblet Good Morning",
         "duration": 6,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 6,
         "description": [
@@ -1430,7 +1353,6 @@
       {
         "title": "Cossack Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -1446,7 +1368,6 @@
       {
         "title": "Dumbbell Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 6,
         "description": [
@@ -1462,7 +1383,6 @@
       {
         "title": "Bent-Knee Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -1478,7 +1398,6 @@
       {
         "title": "Copenhagen Side Plank Lift",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -1494,7 +1413,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1520,7 +1438,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1551,7 +1468,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1572,7 +1488,6 @@
       {
         "title": "Single-Arm Dumbbell Press (Coffee Table)",
         "duration": 9,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 7,
         "description": [
@@ -1588,7 +1503,6 @@
       {
         "title": "Archer Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -1604,7 +1518,6 @@
       {
         "title": "Arnold Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 6,
         "description": [
@@ -1620,7 +1533,6 @@
       {
         "title": "Leaning Single-Arm Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 4,
         "description": [
@@ -1636,7 +1548,6 @@
       {
         "title": "Diamond Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -1652,7 +1563,6 @@
       {
         "title": "Single-Arm Overhead Triceps Extension",
         "duration": 5,
-        "weight_needed": true,
         "weight": 12,
         "intensity": 4,
         "description": [
@@ -1668,7 +1578,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1694,7 +1603,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1715,7 +1623,6 @@
       {
         "title": "Wide-Grip Pull-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -1731,7 +1638,6 @@
       {
         "title": "Paused Dumbbell Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -1747,7 +1653,6 @@
       {
         "title": "Prone Y-T-W Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -1763,7 +1668,6 @@
       {
         "title": "Band Reverse Fly",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -1779,7 +1683,6 @@
       {
         "title": "Concentration Curl",
         "duration": 5,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 4,
         "description": [
@@ -1795,7 +1698,6 @@
       {
         "title": "Hanging Oblique Knee Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -1811,7 +1713,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1837,7 +1738,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1859,7 +1759,6 @@
       {
         "title": "Paused Goblet Squat",
         "duration": 8,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 7,
         "description": [
@@ -1875,7 +1774,6 @@
       {
         "title": "Front-Foot-Elevated Split Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -1891,7 +1789,6 @@
       {
         "title": "Dumbbell Romanian Deadlift",
         "duration": 7,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -1907,7 +1804,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -1923,7 +1819,6 @@
       {
         "title": "Plank Shoulder Tap",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -1939,7 +1834,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1965,7 +1859,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -1986,7 +1879,6 @@
       {
         "title": "Z-Press",
         "duration": 8,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 7,
         "description": [
@@ -2002,7 +1894,6 @@
       {
         "title": "Band Chest Fly",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -2018,7 +1909,6 @@
       {
         "title": "Band-Resisted Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -2033,7 +1923,6 @@
       {
         "title": "Partial Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 5,
         "description": [
@@ -2049,7 +1938,6 @@
       {
         "title": "Band Triceps Pushdown",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -2065,7 +1953,6 @@
       {
         "title": "Band Pull-Apart",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 2,
         "description": [
@@ -2080,7 +1967,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2106,7 +1992,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2127,7 +2012,6 @@
       {
         "title": "Chin-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -2143,7 +2027,6 @@
       {
         "title": "Renegade Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 6,
         "description": [
@@ -2159,7 +2042,6 @@
       {
         "title": "Band Straight-Arm Pulldown",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -2175,7 +2057,6 @@
       {
         "title": "Dumbbell Shrug",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -2191,7 +2072,6 @@
       {
         "title": "Band Curl",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -2207,7 +2087,6 @@
       {
         "title": "Hanging Leg Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -2223,7 +2102,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2249,7 +2127,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2271,7 +2148,6 @@
       {
         "title": "Dumbbell Lateral Lunge",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -2287,7 +2163,6 @@
       {
         "title": "Single-Leg Romanian Deadlift",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -2303,7 +2178,6 @@
       {
         "title": "Goblet Sumo Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 6,
         "description": [
@@ -2319,7 +2193,6 @@
       {
         "title": "Single-Leg Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -2335,7 +2208,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -2350,7 +2222,6 @@
       {
         "title": "Russian Twist",
         "duration": 3,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 4,
         "description": [
@@ -2366,7 +2237,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2392,7 +2262,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2423,7 +2292,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2444,7 +2312,6 @@
       {
         "title": "Dumbbell Floor Press",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -2460,7 +2327,6 @@
       {
         "title": "Tempo Push-up",
         "duration": 6,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -2476,7 +2342,6 @@
       {
         "title": "Seated Dumbbell Shoulder Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 6,
         "description": [
@@ -2492,7 +2357,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 4,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 4,
         "description": [
@@ -2508,7 +2372,6 @@
       {
         "title": "Chair Dip",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -2524,7 +2387,6 @@
       {
         "title": "Overhead Dumbbell Triceps Extension",
         "duration": 4,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -2540,7 +2402,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2566,7 +2427,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2587,7 +2447,6 @@
       {
         "title": "Commando Pull-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -2603,7 +2462,6 @@
       {
         "title": "Band Seated Row",
         "duration": 6,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -2619,7 +2477,6 @@
       {
         "title": "Band Face Pull",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -2635,7 +2492,6 @@
       {
         "title": "Dumbbell Rear Delt Fly",
         "duration": 4,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 4,
         "description": [
@@ -2651,7 +2507,6 @@
       {
         "title": "Zottman Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 4,
         "description": [
@@ -2667,7 +2522,6 @@
       {
         "title": "Hanging Knee Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -2683,7 +2537,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2709,7 +2562,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2731,7 +2583,6 @@
       {
         "title": "Goblet Squat",
         "duration": 8,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 8,
         "description": [
@@ -2747,7 +2598,6 @@
       {
         "title": "Bulgarian Split Squat",
         "duration": 7,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 8,
         "description": [
@@ -2763,7 +2613,6 @@
       {
         "title": "B-Stance Romanian Deadlift",
         "duration": 8,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 7,
         "description": [
@@ -2779,7 +2628,6 @@
       {
         "title": "Seated Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -2795,7 +2643,6 @@
       {
         "title": "Dead Bug",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -2811,7 +2658,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2837,7 +2683,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2858,7 +2703,6 @@
       {
         "title": "Standing Dumbbell Overhead Press",
         "duration": 8,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 8,
         "description": [
@@ -2874,7 +2718,6 @@
       {
         "title": "Dumbbell Fly (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 6,
         "description": [
@@ -2890,7 +2733,6 @@
       {
         "title": "Feet-Elevated Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -2905,7 +2747,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 5,
         "description": [
@@ -2921,7 +2762,6 @@
       {
         "title": "Dumbbell Skull Crusher (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 6,
         "description": [
@@ -2937,7 +2777,6 @@
       {
         "title": "Prone Y Raise",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -2953,7 +2792,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -2979,7 +2817,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3000,7 +2837,6 @@
       {
         "title": "Mixed-Grip Pull-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -3016,7 +2852,6 @@
       {
         "title": "Dumbbell Bent-Over Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -3032,7 +2867,6 @@
       {
         "title": "Dumbbell Pullover (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -3048,7 +2882,6 @@
       {
         "title": "Single-Arm Heavy Shrug",
         "duration": 4,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 5,
         "description": [
@@ -3064,7 +2897,6 @@
       {
         "title": "Hammer Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 5,
         "description": [
@@ -3080,7 +2912,6 @@
       {
         "title": "V-Up",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -3096,7 +2927,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3122,7 +2952,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3144,7 +2973,6 @@
       {
         "title": "Dumbbell Reverse Lunge",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -3160,7 +2988,6 @@
       {
         "title": "Goblet Good Morning",
         "duration": 6,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 7,
         "description": [
@@ -3176,7 +3003,6 @@
       {
         "title": "Heels-Elevated Goblet Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 7,
         "description": [
@@ -3191,7 +3017,6 @@
       {
         "title": "Dumbbell Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 7,
         "description": [
@@ -3207,7 +3032,6 @@
       {
         "title": "Bent-Knee Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -3223,7 +3047,6 @@
       {
         "title": "Side Plank Hip Dip",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -3238,7 +3061,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3264,7 +3086,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3295,7 +3116,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3316,7 +3136,6 @@
       {
         "title": "Dumbbell Press (Coffee Table)",
         "duration": 8,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 8,
         "description": [
@@ -3333,7 +3152,6 @@
       {
         "title": "Deficit Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -3350,7 +3168,6 @@
       {
         "title": "Arnold Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 7,
         "description": [
@@ -3366,7 +3183,6 @@
       {
         "title": "Leaning Single-Arm Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 10,
         "intensity": 5,
         "description": [
@@ -3382,7 +3198,6 @@
       {
         "title": "Diamond Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -3398,7 +3213,6 @@
       {
         "title": "Single-Arm Overhead Triceps Extension",
         "duration": 5,
-        "weight_needed": true,
         "weight": 12,
         "intensity": 5,
         "description": [
@@ -3414,7 +3228,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3440,7 +3253,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3461,7 +3273,6 @@
       {
         "title": "Pull-up",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -3477,7 +3288,6 @@
       {
         "title": "One-Arm Dumbbell Row",
         "duration": 8,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 7,
         "description": [
@@ -3493,7 +3303,6 @@
       {
         "title": "Prone Y-T-W Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -3509,7 +3318,6 @@
       {
         "title": "Band Reverse Fly",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -3525,7 +3333,6 @@
       {
         "title": "Dumbbell Biceps Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 5,
         "description": [
@@ -3541,7 +3348,6 @@
       {
         "title": "Hanging Oblique Knee Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -3557,7 +3363,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3583,7 +3388,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3605,7 +3409,6 @@
       {
         "title": "1.5-Rep Goblet Squat",
         "duration": 12,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 8,
         "description": [
@@ -3621,7 +3424,6 @@
       {
         "title": "Dumbbell Step-Up",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -3637,7 +3439,6 @@
       {
         "title": "Dumbbell Romanian Deadlift",
         "duration": 9,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -3653,7 +3454,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -3669,7 +3469,6 @@
       {
         "title": "Bird Dog",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -3685,7 +3484,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3711,7 +3509,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3732,7 +3529,6 @@
       {
         "title": "Single-Arm Overhead Press",
         "duration": 12,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 8,
         "description": [
@@ -3748,7 +3544,6 @@
       {
         "title": "Squeeze Press (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -3764,7 +3559,6 @@
       {
         "title": "Pike Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -3780,7 +3574,6 @@
       {
         "title": "Band Lateral Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -3796,7 +3589,6 @@
       {
         "title": "Close-Grip Dumbbell Press (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 6,
         "description": [
@@ -3812,7 +3604,6 @@
       {
         "title": "Band Pull-Apart",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -3827,7 +3618,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3853,7 +3643,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3874,7 +3663,6 @@
       {
         "title": "Chin-up",
         "duration": 10,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -3890,7 +3678,6 @@
       {
         "title": "Dead-Stop Dumbbell Row",
         "duration": 10,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -3906,7 +3693,6 @@
       {
         "title": "Band Straight-Arm Pulldown",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -3922,7 +3708,6 @@
       {
         "title": "Dumbbell Shrug",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -3938,7 +3723,6 @@
       {
         "title": "Cross-Body Hammer Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 5,
         "description": [
@@ -3954,7 +3738,6 @@
       {
         "title": "Hanging Leg Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -3970,7 +3753,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -3996,7 +3778,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4018,7 +3799,6 @@
       {
         "title": "Dumbbell Walking Lunge",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -4034,7 +3814,6 @@
       {
         "title": "Single-Leg Romanian Deadlift",
         "duration": 8,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 7,
         "description": [
@@ -4050,7 +3829,6 @@
       {
         "title": "Cossack Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -4066,7 +3844,6 @@
       {
         "title": "Single-Leg Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 6,
         "description": [
@@ -4082,7 +3859,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -4097,7 +3873,6 @@
       {
         "title": "Copenhagen Side Plank Lift",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -4113,7 +3888,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4139,7 +3913,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4170,7 +3943,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4191,7 +3963,6 @@
       {
         "title": "Single-Arm Dumbbell Press (Coffee Table)",
         "duration": 12,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 8,
         "description": [
@@ -4207,7 +3978,6 @@
       {
         "title": "Archer Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -4223,7 +3993,6 @@
       {
         "title": "Seated Dumbbell Shoulder Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -4239,7 +4008,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 4,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -4255,7 +4023,6 @@
       {
         "title": "Chair Dip",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -4271,7 +4038,6 @@
       {
         "title": "Overhead Dumbbell Triceps Extension",
         "duration": 4,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -4287,7 +4053,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4313,7 +4078,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4334,7 +4098,6 @@
       {
         "title": "Wide-Grip Pull-up",
         "duration": 10,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -4350,7 +4113,6 @@
       {
         "title": "Paused Dumbbell Row",
         "duration": 10,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -4366,7 +4128,6 @@
       {
         "title": "Band Face Pull",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -4382,7 +4143,6 @@
       {
         "title": "Dumbbell Rear Delt Fly",
         "duration": 4,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -4398,7 +4158,6 @@
       {
         "title": "Concentration Curl",
         "duration": 5,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 5,
         "description": [
@@ -4414,7 +4173,6 @@
       {
         "title": "Hanging Knee Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -4430,7 +4188,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4456,7 +4213,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4478,7 +4234,6 @@
       {
         "title": "Paused Goblet Squat",
         "duration": 10,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 8,
         "description": [
@@ -4494,7 +4249,6 @@
       {
         "title": "Front-Foot-Elevated Split Squat",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -4510,7 +4264,6 @@
       {
         "title": "B-Stance Romanian Deadlift",
         "duration": 10,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 7,
         "description": [
@@ -4526,7 +4279,6 @@
       {
         "title": "Seated Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -4542,7 +4294,6 @@
       {
         "title": "Plank Shoulder Tap",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -4558,7 +4309,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4584,7 +4334,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4605,7 +4354,6 @@
       {
         "title": "Z-Press",
         "duration": 10,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 8,
         "description": [
@@ -4621,7 +4369,6 @@
       {
         "title": "Band Chest Fly",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -4637,7 +4384,6 @@
       {
         "title": "Band-Resisted Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 7,
         "description": [
@@ -4652,7 +4398,6 @@
       {
         "title": "Partial Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 6,
         "description": [
@@ -4668,7 +4413,6 @@
       {
         "title": "Band Triceps Pushdown",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -4684,7 +4428,6 @@
       {
         "title": "Prone Y Raise",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -4700,7 +4443,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4726,7 +4468,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4747,7 +4488,6 @@
       {
         "title": "Mixed-Grip Pull-up",
         "duration": 10,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -4763,7 +4503,6 @@
       {
         "title": "Renegade Row",
         "duration": 10,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -4779,7 +4518,6 @@
       {
         "title": "Dumbbell Pullover (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 6,
         "description": [
@@ -4795,7 +4533,6 @@
       {
         "title": "Single-Arm Heavy Shrug",
         "duration": 4,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 5,
         "description": [
@@ -4811,7 +4548,6 @@
       {
         "title": "Band Curl",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -4827,7 +4563,6 @@
       {
         "title": "V-Up",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -4843,7 +4578,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4869,7 +4603,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -4891,7 +4624,6 @@
       {
         "title": "Dumbbell Lateral Lunge",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -4907,7 +4639,6 @@
       {
         "title": "Goblet Good Morning",
         "duration": 7,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 7,
         "description": [
@@ -4923,7 +4654,6 @@
       {
         "title": "Goblet Sumo Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 7,
         "description": [
@@ -4939,7 +4669,6 @@
       {
         "title": "Dumbbell Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 55,
         "intensity": 7,
         "description": [
@@ -4955,7 +4684,6 @@
       {
         "title": "Bent-Knee Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 5,
         "description": [
@@ -4971,7 +4699,6 @@
       {
         "title": "Russian Twist",
         "duration": 3,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 5,
         "description": [
@@ -4987,7 +4714,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5013,7 +4739,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5044,7 +4769,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5065,7 +4789,6 @@
       {
         "title": "Dumbbell Floor Press",
         "duration": 10,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -5081,7 +4804,6 @@
       {
         "title": "Tempo Push-up",
         "duration": 6,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -5097,7 +4819,6 @@
       {
         "title": "Arnold Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -5113,7 +4834,6 @@
       {
         "title": "Leaning Single-Arm Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -5129,7 +4849,6 @@
       {
         "title": "Diamond Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -5145,7 +4864,6 @@
       {
         "title": "Single-Arm Overhead Triceps Extension",
         "duration": 5,
-        "weight_needed": true,
         "weight": 17,
         "intensity": 5,
         "description": [
@@ -5161,7 +4879,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5187,7 +4904,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5208,7 +4924,6 @@
       {
         "title": "Commando Pull-up",
         "duration": 10,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -5224,7 +4939,6 @@
       {
         "title": "Band Seated Row",
         "duration": 8,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -5240,7 +4954,6 @@
       {
         "title": "Prone Y-T-W Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -5256,7 +4969,6 @@
       {
         "title": "Band Reverse Fly",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -5272,7 +4984,6 @@
       {
         "title": "Zottman Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 5,
         "description": [
@@ -5288,7 +4999,6 @@
       {
         "title": "Hanging Oblique Knee Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -5304,7 +5014,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5330,7 +5039,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5352,7 +5060,6 @@
       {
         "title": "Goblet Squat",
         "duration": 10,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 8,
         "description": [
@@ -5368,7 +5075,6 @@
       {
         "title": "Bulgarian Split Squat",
         "duration": 9,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 8,
         "description": [
@@ -5384,7 +5090,6 @@
       {
         "title": "Dumbbell Romanian Deadlift",
         "duration": 9,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -5400,7 +5105,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -5416,7 +5120,6 @@
       {
         "title": "Dead Bug",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -5432,7 +5135,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5458,7 +5160,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5479,7 +5180,6 @@
       {
         "title": "Standing Dumbbell Overhead Press",
         "duration": 10,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 8,
         "description": [
@@ -5495,7 +5195,6 @@
       {
         "title": "Dumbbell Fly (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 6,
         "description": [
@@ -5511,7 +5210,6 @@
       {
         "title": "Feet-Elevated Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -5526,7 +5224,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 5,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -5542,7 +5239,6 @@
       {
         "title": "Dumbbell Skull Crusher (Coffee Table)",
         "duration": 5,
-        "weight_needed": true,
         "weight": 20,
         "intensity": 6,
         "description": [
@@ -5558,7 +5254,6 @@
       {
         "title": "Band Pull-Apart",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -5573,7 +5268,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5599,7 +5293,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5620,7 +5313,6 @@
       {
         "title": "Chin-up",
         "duration": 10,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -5636,7 +5328,6 @@
       {
         "title": "Dumbbell Bent-Over Row",
         "duration": 10,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -5652,7 +5343,6 @@
       {
         "title": "Band Straight-Arm Pulldown",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -5668,7 +5358,6 @@
       {
         "title": "Dumbbell Shrug",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -5684,7 +5373,6 @@
       {
         "title": "Hammer Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 5,
         "description": [
@@ -5700,7 +5388,6 @@
       {
         "title": "Hanging Leg Raise",
         "duration": 4,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -5716,7 +5403,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5742,7 +5428,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5764,7 +5449,6 @@
       {
         "title": "Dumbbell Reverse Lunge",
         "duration": 8,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 7,
         "description": [
@@ -5780,7 +5464,6 @@
       {
         "title": "Single-Leg Romanian Deadlift",
         "duration": 8,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 7,
         "description": [
@@ -5796,7 +5479,6 @@
       {
         "title": "Heels-Elevated Goblet Squat",
         "duration": 6,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 7,
         "description": [
@@ -5811,7 +5493,6 @@
       {
         "title": "Single-Leg Hip Thrust (Coffee Table)",
         "duration": 6,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 6,
         "description": [
@@ -5827,7 +5508,6 @@
       {
         "title": "Single-Leg Calf Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -5842,7 +5522,6 @@
       {
         "title": "Side Plank Hip Dip",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -5857,7 +5536,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5883,7 +5561,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5914,7 +5591,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -5935,7 +5611,6 @@
       {
         "title": "Dumbbell Press (Coffee Table)",
         "duration": 10,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 8,
         "description": [
@@ -5952,7 +5627,6 @@
       {
         "title": "Deficit Push-up",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -5969,7 +5643,6 @@
       {
         "title": "Seated Dumbbell Shoulder Press",
         "duration": 6,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 7,
         "description": [
@@ -5985,7 +5658,6 @@
       {
         "title": "Dumbbell Lateral Raise",
         "duration": 4,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -6001,7 +5673,6 @@
       {
         "title": "Chair Dip",
         "duration": 5,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 6,
         "description": [
@@ -6017,7 +5688,6 @@
       {
         "title": "Overhead Dumbbell Triceps Extension",
         "duration": 4,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 5,
         "description": [
@@ -6033,7 +5703,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6059,7 +5728,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6080,7 +5748,6 @@
       {
         "title": "Pull-up",
         "duration": 10,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 8,
         "description": [
@@ -6096,7 +5763,6 @@
       {
         "title": "One-Arm Dumbbell Row",
         "duration": 10,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 7,
         "description": [
@@ -6112,7 +5778,6 @@
       {
         "title": "Band Face Pull",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -6128,7 +5793,6 @@
       {
         "title": "Dumbbell Rear Delt Fly",
         "duration": 4,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 5,
         "description": [
@@ -6144,7 +5808,6 @@
       {
         "title": "Dumbbell Biceps Curl",
         "duration": 4,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 5,
         "description": [
@@ -6160,7 +5823,6 @@
       {
         "title": "Hanging Knee Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -6176,7 +5838,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6202,7 +5863,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6224,7 +5884,6 @@
       {
         "title": "1.5-Rep Goblet Squat",
         "duration": 7,
-        "weight_needed": true,
         "weight": 45,
         "intensity": 5,
         "description": [
@@ -6240,7 +5899,6 @@
       {
         "title": "Dumbbell Step-Up",
         "duration": 4,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -6256,7 +5914,6 @@
       {
         "title": "B-Stance Romanian Deadlift",
         "duration": 6,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 4,
         "description": [
@@ -6272,7 +5929,6 @@
       {
         "title": "Seated Calf Raise",
         "duration": 2,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 2,
         "description": [
@@ -6288,7 +5944,6 @@
       {
         "title": "Bird Dog",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 1,
         "description": [
@@ -6304,7 +5959,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6330,7 +5984,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6351,7 +6004,6 @@
       {
         "title": "Single-Arm Overhead Press",
         "duration": 7,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 5,
         "description": [
@@ -6367,7 +6019,6 @@
       {
         "title": "Squeeze Press (Coffee Table)",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 3,
         "description": [
@@ -6383,7 +6034,6 @@
       {
         "title": "Pike Push-up",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -6399,7 +6049,6 @@
       {
         "title": "Band Lateral Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 1,
         "description": [
@@ -6415,7 +6064,6 @@
       {
         "title": "Close-Grip Dumbbell Press (Coffee Table)",
         "duration": 3,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 3,
         "description": [
@@ -6431,7 +6079,6 @@
       {
         "title": "Prone Y Raise",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 1,
         "description": [
@@ -6447,7 +6094,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6473,7 +6119,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6494,7 +6139,6 @@
       {
         "title": "Mixed-Grip Pull-up",
         "duration": 6,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -6510,7 +6154,6 @@
       {
         "title": "Dead-Stop Dumbbell Row",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -6526,7 +6169,6 @@
       {
         "title": "Dumbbell Pullover (Coffee Table)",
         "duration": 3,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 3,
         "description": [
@@ -6542,7 +6184,6 @@
       {
         "title": "Single-Arm Heavy Shrug",
         "duration": 3,
-        "weight_needed": true,
         "weight": 50,
         "intensity": 2,
         "description": [
@@ -6558,7 +6199,6 @@
       {
         "title": "Cross-Body Hammer Curl",
         "duration": 3,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 2,
         "description": [
@@ -6574,7 +6214,6 @@
       {
         "title": "V-Up",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 2,
         "description": [
@@ -6590,7 +6229,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6616,7 +6254,6 @@
       {
         "title": "Pre-Workout Stretch: Lower Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6638,7 +6275,6 @@
       {
         "title": "Dumbbell Walking Lunge",
         "duration": 4,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -6654,7 +6290,6 @@
       {
         "title": "Goblet Good Morning",
         "duration": 4,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 4,
         "description": [
@@ -6670,7 +6305,6 @@
       {
         "title": "Cossack Squat",
         "duration": 4,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -6686,7 +6320,6 @@
       {
         "title": "Dumbbell Hip Thrust (Coffee Table)",
         "duration": 4,
-        "weight_needed": true,
         "weight": 55,
         "intensity": 4,
         "description": [
@@ -6702,7 +6335,6 @@
       {
         "title": "Bent-Knee Calf Raise",
         "duration": 2,
-        "weight_needed": true,
         "weight": 35,
         "intensity": 2,
         "description": [
@@ -6718,7 +6350,6 @@
       {
         "title": "Copenhagen Side Plank Lift",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -6734,7 +6365,6 @@
       {
         "title": "Post-Workout Stretch: Lower Body",
         "duration": 9,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6760,7 +6390,6 @@
       {
         "title": "Recovery Mobility Session",
         "duration": 20,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6791,7 +6420,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6812,7 +6440,6 @@
       {
         "title": "Single-Arm Dumbbell Press (Coffee Table)",
         "duration": 7,
-        "weight_needed": true,
         "weight": 40,
         "intensity": 5,
         "description": [
@@ -6828,7 +6455,6 @@
       {
         "title": "Archer Push-up",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 4,
         "description": [
@@ -6844,7 +6470,6 @@
       {
         "title": "Arnold Press",
         "duration": 4,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 4,
         "description": [
@@ -6860,7 +6485,6 @@
       {
         "title": "Leaning Single-Arm Lateral Raise",
         "duration": 3,
-        "weight_needed": true,
         "weight": 15,
         "intensity": 2,
         "description": [
@@ -6876,7 +6500,6 @@
       {
         "title": "Diamond Push-up",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 3,
         "description": [
@@ -6892,7 +6515,6 @@
       {
         "title": "Single-Arm Overhead Triceps Extension",
         "duration": 3,
-        "weight_needed": true,
         "weight": 17,
         "intensity": 2,
         "description": [
@@ -6908,7 +6530,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6934,7 +6555,6 @@
       {
         "title": "Pre-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [
@@ -6955,7 +6575,6 @@
       {
         "title": "Wide-Grip Pull-up",
         "duration": 6,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 5,
         "description": [
@@ -6971,7 +6590,6 @@
       {
         "title": "Paused Dumbbell Row",
         "duration": 6,
-        "weight_needed": true,
         "weight": 30,
         "intensity": 4,
         "description": [
@@ -6987,7 +6605,6 @@
       {
         "title": "Prone Y-T-W Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 1,
         "description": [
@@ -7003,7 +6620,6 @@
       {
         "title": "Band Reverse Fly",
         "duration": 2,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 1,
         "description": [
@@ -7019,7 +6635,6 @@
       {
         "title": "Concentration Curl",
         "duration": 3,
-        "weight_needed": true,
         "weight": 25,
         "intensity": 2,
         "description": [
@@ -7035,7 +6650,6 @@
       {
         "title": "Hanging Oblique Knee Raise",
         "duration": 3,
-        "weight_needed": false,
         "weight": 0,
         "intensity": 2,
         "description": [
@@ -7051,7 +6665,6 @@
       {
         "title": "Post-Workout Stretch: Upper Body",
         "duration": 8,
-        "weight_needed": false,
         "intensity": 1,
         "weight": 0,
         "description": [

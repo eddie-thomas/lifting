@@ -2,7 +2,6 @@ export interface Workout {
   title: string
   /** In minutes. Drives the countdown timer. */
   duration: number
-  weight_needed: boolean
   /** 0-9, 9 being the highest. */
   intensity: number
   /** Ordered, step-by-step explanation of the workout. */

@@ -35,6 +35,7 @@ const countChipSx = {
 
 // Dashed outline so the suggested load reads as advice, not a fixed target like sets/reps.
 const suggestedChipSx = {
+  width: "100%",
   height: 34,
   fontSize: "1rem",
   bgcolor: "transparent",
@@ -113,12 +114,6 @@ export default function WorkoutCard({ workout, active, done, onStart }: Props) {
               <BoltRounded sx={{ fontSize: 16 }} />
               <Typography variant="caption">{workout.intensity}/9</Typography>
             </Box>
-            {workout.weight_needed && suggestedWeight === null && (
-              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                <FitnessCenterRounded sx={{ fontSize: 16 }} />
-                <Typography variant="caption">Weights</Typography>
-              </Box>
-            )}
           </Box>
         </Box>
 
