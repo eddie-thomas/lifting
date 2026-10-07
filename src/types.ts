@@ -12,6 +12,8 @@ export interface Workout {
   img_src: string
   reps: number
   sets: number
+  /** Suggested load in lb (per dumbbell for two-dumbbell moves). 0 = bodyweight or band. */
+  weight: number
   /** Display / execution order within the day. */
   order: number
 }

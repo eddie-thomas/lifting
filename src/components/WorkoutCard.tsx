@@ -33,8 +33,19 @@ const countChipSx = {
   "& .MuiChip-label": { px: 1.5 },
 };
 
+// Dashed outline so the suggested load reads as advice, not a fixed target like sets/reps.
+const suggestedChipSx = {
+  height: 34,
+  fontSize: "1rem",
+  bgcolor: "transparent",
+  border: "1px dashed rgba(255,255,255,0.3)",
+  "& .MuiChip-label": { px: 1.5 },
+  "& .MuiChip-icon": { color: "text.secondary", fontSize: 18 },
+};
+
 export default function WorkoutCard({ workout, active, done, onStart }: Props) {
   const [imgFailed, setImgFailed] = useState(false);
+  const suggestedWeight = workout.weight > 0 ? workout.weight : null;
 
   return (
     <Paper
@@ -63,6 +74,26 @@ export default function WorkoutCard({ workout, active, done, onStart }: Props) {
           <Box sx={{ display: "flex", gap: 1, mt: 1, flexWrap: "wrap" }}>
             <Chip label={`${workout.sets} sets`} sx={countChipSx} />
             <Chip label={`${workout.reps} reps`} sx={countChipSx} />
+            {suggestedWeight !== null && (
+              <Chip
+                icon={<FitnessCenterRounded />}
+                aria-label={`Suggested weight: ${suggestedWeight} lb`}
+                label={
+                  <>
+                    <Box component="span" sx={{ fontWeight: 700 }}>
+                      {suggestedWeight} lb
+                    </Box>{" "}
+                    <Box
+                      component="span"
+                      sx={{ fontSize: "0.8rem", color: "text.secondary" }}
+                    >
+                      suggested
+                    </Box>
+                  </>
+                }
+                sx={suggestedChipSx}
+              />
+            )}
           </Box>
 
           <Box
@@ -82,7 +113,7 @@ export default function WorkoutCard({ workout, active, done, onStart }: Props) {
               <BoltRounded sx={{ fontSize: 16 }} />
               <Typography variant="caption">{workout.intensity}/9</Typography>
             </Box>
-            {workout.weight_needed && (
+            {workout.weight_needed && suggestedWeight === null && (
               <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                 <FitnessCenterRounded sx={{ fontSize: 16 }} />
                 <Typography variant="caption">Weights</Typography>
