@@ -10,8 +10,9 @@ import { loadWorkouts, sortedWorkouts } from './data/loadWorkouts'
 import { useCountdown } from './hooks/useCountdown'
 import { useHashRoute } from './hooks/useHashRoute'
 import { usePersistentState } from './hooks/usePersistentState'
+import { useWakeLock } from './hooks/useWakeLock'
 import type { ActiveWorkout, Workout } from './types'
-import { timerFinishedAlert, unlockAudio } from './utils/alert'
+import { startAlarm, tick, unlockAudio } from './utils/alert'
 import { monthKey, parseISODate, todayISO } from './utils/date'
 import type { Weights } from './utils/weightTrend'
 
@@ -34,6 +35,9 @@ export default function App() {
   const [weights, setWeights] = usePersistentState<Weights>('weights', {})
   const [weightGoal, setWeightGoal] = usePersistentState<number | null>('weightGoal', null)
   const [weightPromptedOn, setWeightPromptedOn] = usePersistentState<string | null>('weightPromptedOn', null)
+  const [tickOn, setTickOn] = usePersistentState('tickSound', true)
+  // Timer finished and the alarm is going until the user presses stop.
+  const [alarming, setAlarming] = useState(false)
   const [weighDate, setWeighDate] = useState<string | null>(null)
   const [errorDismissed, setErrorDismissed] = useState(false)
 
@@ -51,8 +55,10 @@ export default function App() {
     return () => document.removeEventListener('visibilitychange', prompt)
   }, [weights, weightPromptedOn, setWeightPromptedOn])
 
+  useEffect(() => (alarming ? startAlarm() : undefined), [alarming])
+
   const onComplete = useCallback(() => {
-    timerFinishedAlert()
+    setAlarming(true)
     if (!active) return
     setCompleted((prev) => {
       const orders = prev[active.date] ?? []
@@ -60,7 +66,8 @@ export default function App() {
     })
   }, [active, setCompleted])
 
-  const countdown = useCountdown(onComplete)
+  const countdown = useCountdown(onComplete, tickOn ? tick : undefined)
+  useWakeLock(countdown.status === 'running' || alarming)
   const activeWorkout = findWorkout(active)
 
   const handleOpenDay = (date: string) => {
@@ -70,6 +77,7 @@ export default function App() {
   }
 
   const handleStartWorkout = (date: string, workout: Workout) => {
+    setAlarming(false)
     setActive({ date, order: workout.order })
     countdown.load(workout.duration)
     scrollToTop()
@@ -77,6 +85,10 @@ export default function App() {
 
   const handlePlayPause = (date: string) => {
     unlockAudio()
+    if (alarming) {
+      setAlarming(false)
+      return
+    }
     if (countdown.status === 'running') {
       countdown.pause()
       return
@@ -117,7 +129,15 @@ export default function App() {
     setWeighDate(null)
   }
 
-  const handleReset = () => countdown.load(activeWorkout?.duration ?? 0)
+  const handleReset = () => {
+    setAlarming(false)
+    countdown.load(activeWorkout?.duration ?? 0)
+  }
+
+  const toggleTick = () => {
+    unlockAudio()
+    setTickOn((on) => !on)
+  }
 
   let caption = 'Press play or start a workout below'
   if (activeWorkout && active) {
@@ -172,11 +192,14 @@ export default function App() {
             timer={
               <TimerPanel
                 status={countdown.status}
+                alarming={alarming}
                 remainingMs={countdown.remainingMs}
                 durationMs={countdown.durationMs}
                 caption={caption}
                 onPlayPause={() => handlePlayPause(route.date)}
                 onReset={handleReset}
+                tickOn={tickOn}
+                onToggleTick={toggleTick}
               />
             }
           />

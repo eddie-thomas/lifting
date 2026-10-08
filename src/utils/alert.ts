@@ -1,47 +1,98 @@
+import { ALARM_PERIOD_MS, ALARM_TONES, SILENT_GAIN, attackOf, type Tone } from './alarmSound'
+import { buzz } from './haptics'
+
 let ctx: AudioContext | null = null
+
+/** Safari's Audio Session API (not in the TS DOM lib yet). */
+type AudioSessionNavigator = Navigator & { audioSession?: { type: string } }
 
 /**
  * Create/resume the AudioContext. Must be called from a user gesture (the Play
- * tap) so mobile browsers allow the completion beep to play later.
+ * tap) so mobile browsers allow the ticks and completion beep to play later.
  */
 export function unlockAudio(): void {
   try {
-    ctx ??= new AudioContext()
+    // 'playback' keeps sounds audible with the iPhone silent switch on (at the
+    // cost of interrupting music from other apps).
+    const session = (navigator as AudioSessionNavigator).audioSession
+    if (session) session.type = 'playback'
+  } catch {
+    // ignore
+  }
+  try {
+    if (!ctx) {
+      ctx = new AudioContext()
+      // A one-sample silent buffer fully unlocks audio on iOS.
+      const src = ctx.createBufferSource()
+      src.buffer = ctx.createBuffer(1, 1, ctx.sampleRate)
+      src.connect(ctx.destination)
+      src.start()
+    }
     if (ctx.state === 'suspended') void ctx.resume()
   } catch {
-    // Audio unavailable; the alert just won't beep.
+    // Audio unavailable; the timer just won't make sound.
   }
+}
+
+/** Play `tone`, offset from audio-clock time `start`. */
+function play(tone: Tone, start: number): void {
+  if (!ctx) return
+  const t = start + tone.at
+  const osc = ctx.createOscillator()
+  const gain = ctx.createGain()
+  osc.type = 'sine'
+  osc.frequency.value = tone.frequency
+  gain.gain.setValueAtTime(SILENT_GAIN, t)
+  gain.gain.exponentialRampToValueAtTime(tone.peak, t + attackOf(tone))
+  gain.gain.exponentialRampToValueAtTime(SILENT_GAIN, t + tone.length)
+  osc.connect(gain).connect(ctx.destination)
+  osc.start(t)
+  osc.stop(t + tone.length + 0.01)
+}
+
+const TICK_TONE: Tone = { at: 0, frequency: 1200, peak: 0.15, length: 0.025 }
+
+/** A short, quiet click (and a light buzz on Android) for each second of the countdown. */
+export function tick(): void {
+  try {
+    if (ctx) play(TICK_TONE, ctx.currentTime)
+  } catch {
+    // ignore
+  }
+  buzz()
 }
 
 function beep(): void {
   if (!ctx) return
   const start = ctx.currentTime
-  // Three short tones.
-  for (let i = 0; i < 3; i++) {
-    const t = start + i * 0.35
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'sine'
-    osc.frequency.value = 880
-    gain.gain.setValueAtTime(0.0001, t)
-    gain.gain.exponentialRampToValueAtTime(0.4, t + 0.02)
-    gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.25)
-    osc.connect(gain).connect(ctx.destination)
-    osc.start(t)
-    osc.stop(t + 0.26)
-  }
+  for (const tone of ALARM_TONES) play(tone, start)
 }
 
-/** Vibrate (where supported; not on iOS) and beep. */
-export function timerFinishedAlert(): void {
-  try {
-    navigator.vibrate?.([300, 150, 300])
-  } catch {
-    // ignore
-  }
+const ALARM_BUZZES = 6
+const ALARM_BUZZ_GAP_MS = 100
+
+function alarmCycle(): void {
+  buzz(ALARM_BUZZES, ALARM_BUZZ_GAP_MS)
   try {
     beep()
   } catch {
     // ignore
+  }
+}
+
+/**
+ * Timer-finished alarm: the beep (plus a burst of buzzes on Android), a pause,
+ * and again, until the returned stop function is called.
+ */
+export function startAlarm(): () => void {
+  alarmCycle()
+  const id = setInterval(alarmCycle, ALARM_PERIOD_MS)
+  return () => {
+    clearInterval(id)
+    try {
+      navigator.vibrate?.(0)
+    } catch {
+      // ignore
+    }
   }
 }

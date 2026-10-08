@@ -1,23 +1,32 @@
-import { Box, CircularProgress, IconButton, Paper, Typography } from '@mui/material'
+import { Box, CircularProgress, Paper, Typography } from '@mui/material'
 import PlayArrowRounded from '@mui/icons-material/PlayArrowRounded'
 import PauseRounded from '@mui/icons-material/PauseRounded'
 import RestartAltRounded from '@mui/icons-material/RestartAltRounded'
+import StopRounded from '@mui/icons-material/StopRounded'
+import VolumeOffRounded from '@mui/icons-material/VolumeOffRounded'
+import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded'
 import type { TimerStatus } from '../hooks/useCountdown'
 import { formatHMS } from '../utils/date'
+import HapticButton from './HapticButton'
 
 const SIZE = 128
 
 interface Props {
   status: TimerStatus
+  /** The finished alarm is going; the main button becomes Stop. */
+  alarming: boolean
   remainingMs: number
   durationMs: number
   /** What the timer is counting for, e.g. the active workout's title. */
   caption: string
   onPlayPause: () => void
   onReset: () => void
+  /** Whether each second of the countdown ticks. */
+  tickOn: boolean
+  onToggleTick: () => void
 }
 
-export default function TimerPanel({ status, remainingMs, durationMs, caption, onPlayPause, onReset }: Props) {
+export default function TimerPanel({ status, alarming, remainingMs, durationMs, caption, onPlayPause, onReset, tickOn, onToggleTick }: Props) {
   const running = status === 'running'
   const progress = durationMs > 0 ? (remainingMs / durationMs) * 100 : 0
 
@@ -39,23 +48,38 @@ export default function TimerPanel({ status, remainingMs, durationMs, caption, o
           thickness={2}
           sx={{ position: 'absolute', inset: 0, color: 'primary.main' }}
         />
-        <IconButton
-          onClick={onPlayPause}
-          aria-label={running ? 'Pause' : 'Play'}
+        <HapticButton
+          onPress={onPlayPause}
+          aria-label={alarming ? 'Stop alarm' : running ? 'Pause' : 'Play'}
+          wrapperSx={{ position: 'absolute', inset: 12 }}
           sx={{
-            position: 'absolute',
-            inset: 12,
+            width: '100%',
+            height: '100%',
             bgcolor: 'primary.main',
             color: 'primary.contrastText',
             boxShadow: '0 8px 24px rgba(224, 85, 85, 0.25)',
             '&:hover': { bgcolor: 'primary.dark' },
           }}
         >
-          {running ? <PauseRounded sx={{ fontSize: 56 }} /> : <PlayArrowRounded sx={{ fontSize: 64 }} />}
-        </IconButton>
+          {alarming ? (
+            <StopRounded sx={{ fontSize: 56 }} />
+          ) : running ? (
+            <PauseRounded sx={{ fontSize: 56 }} />
+          ) : (
+            <PlayArrowRounded sx={{ fontSize: 64 }} />
+          )}
+        </HapticButton>
       </Box>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, pl: 5 /* balance the reset button */ }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <HapticButton
+          onPress={onToggleTick}
+          aria-label={tickOn ? 'Mute ticking' : 'Unmute ticking'}
+          aria-pressed={tickOn}
+          sx={{ color: 'text.secondary' }}
+        >
+          {tickOn ? <VolumeUpRounded /> : <VolumeOffRounded />}
+        </HapticButton>
         <Typography
           component="div"
           sx={{
@@ -68,9 +92,9 @@ export default function TimerPanel({ status, remainingMs, durationMs, caption, o
         >
           {formatHMS(remainingMs)}
         </Typography>
-        <IconButton onClick={onReset} aria-label="Reset timer" sx={{ color: 'text.secondary' }}>
+        <HapticButton onPress={onReset} aria-label="Reset timer" sx={{ color: 'text.secondary' }}>
           <RestartAltRounded />
-        </IconButton>
+        </HapticButton>
       </Box>
 
       <Typography variant="body2" sx={{ color: 'text.secondary', textAlign: 'center' }}>

@@ -21,13 +21,15 @@ const minutesToMs = (min: number) => Math.max(0, min) * 60_000
  * reloads and backgrounded tabs stay accurate. If the time ran out while the
  * page was closed, it finishes on the next load.
  */
-export function useCountdown(onComplete: () => void) {
+export function useCountdown(onComplete: () => void, onTick?: (secondsLeft: number) => void) {
   const [timer, setTimer] = usePersistentState<TimerState>('timer', INITIAL)
   const [now, setNow] = useState(() => Date.now())
 
   const onCompleteRef = useRef(onComplete)
+  const onTickRef = useRef(onTick)
   useEffect(() => {
     onCompleteRef.current = onComplete
+    onTickRef.current = onTick
   })
   // Guards against firing twice for the same run (e.g. StrictMode double effects).
   const firedForRef = useRef<number | null>(null)
@@ -35,10 +37,19 @@ export function useCountdown(onComplete: () => void) {
   useEffect(() => {
     if (timer.status !== 'running' || timer.endsAt === null) return
     const endsAt = timer.endsAt
+    let lastSecond: number | null = null
+    let id: ReturnType<typeof setTimeout>
     const check = () => {
       const t = Date.now()
       if (t < endsAt) {
         setNow(t)
+        const remaining = endsAt - t
+        const second = Math.ceil(remaining / 1000)
+        // Tick when the displayed second changes (not on start/resume).
+        if (lastSecond !== null && second < lastSecond) onTickRef.current?.(second)
+        lastSecond = second
+        // Wake just after the next whole-second boundary.
+        id = setTimeout(check, (remaining % 1000 || 1000) + 5)
         return
       }
       setTimer((prev) => ({ ...prev, status: 'done', remainingMs: 0, endsAt: null }))
@@ -48,8 +59,7 @@ export function useCountdown(onComplete: () => void) {
       }
     }
     check()
-    const id = setInterval(check, 250)
-    return () => clearInterval(id)
+    return () => clearTimeout(id)
   }, [timer.status, timer.endsAt, setTimer])
 
   /** Load a duration in the ready state (does not start). */
