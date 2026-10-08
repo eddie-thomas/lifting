@@ -57,18 +57,26 @@ export default function App() {
 
   useEffect(() => (alarming ? startAlarm() : undefined), [alarming])
 
+  const markDone = useCallback(
+    ({ date, order }: ActiveWorkout) =>
+      setCompleted((prev) => {
+        const orders = prev[date] ?? []
+        return orders.includes(order) ? prev : { ...prev, [date]: [...orders, order] }
+      }),
+    [setCompleted],
+  )
+
   const onComplete = useCallback(() => {
     setAlarming(true)
-    if (!active) return
-    setCompleted((prev) => {
-      const orders = prev[active.date] ?? []
-      return orders.includes(active.order) ? prev : { ...prev, [active.date]: [...orders, active.order] }
-    })
-  }, [active, setCompleted])
+    if (active) markDone(active)
+  }, [active, markDone])
 
   const countdown = useCountdown(onComplete, tickOn ? tick : undefined)
   useWakeLock(countdown.status === 'running' || alarming)
   const activeWorkout = findWorkout(active)
+  // The active workout's day, in order, for the previous / next arrows.
+  const activeDayList = active ? sortedWorkouts(DATA.byDate.get(active.date), null) : []
+  const activeIdx = activeDayList.findIndex((w) => w.order === active?.order)
 
   const handleOpenDay = (date: string) => {
     setSelectedDate(date)
@@ -111,6 +119,29 @@ export default function App() {
     }
   }
 
+  // Check off the active workout and load the next unfinished one of its day
+  // (looking past it first, then wrapping around). Clears the timer when none are left.
+  const handleMarkComplete = () => {
+    if (!active || activeIdx < 0) return
+    markDone(active)
+    const done = [...(completed[active.date] ?? []), active.order]
+    const next = [...activeDayList.slice(activeIdx + 1), ...activeDayList.slice(0, activeIdx)].find(
+      (w) => !done.includes(w.order),
+    )
+    if (next) {
+      handleStartWorkout(active.date, next)
+    } else {
+      setAlarming(false)
+      setActive(null)
+      countdown.load(0)
+    }
+  }
+
+  const stepWorkout = (delta: number) => {
+    const target = activeDayList[activeIdx + delta]
+    return active && activeIdx >= 0 && target ? () => handleStartWorkout(active.date, target) : undefined
+  }
+
   const toggleRan = (date: string) =>
     setRuns((prev) => (prev.includes(date) ? prev.filter((d) => d !== date) : [...prev, date]))
 
@@ -140,6 +171,11 @@ export default function App() {
   }
 
   let caption = 'Press play or start a workout below'
+  if (route.view === 'day') {
+    const dayList = DATA.byDate.get(route.date)?.workout ?? []
+    const done = completed[route.date] ?? []
+    if (dayList.length > 0 && dayList.every((w) => done.includes(w.order))) caption = 'All workouts done'
+  }
   if (activeWorkout && active) {
     caption =
       route.view === 'day' && active.date === route.date
@@ -200,6 +236,9 @@ export default function App() {
                 onReset={handleReset}
                 tickOn={tickOn}
                 onToggleTick={toggleTick}
+                onMarkComplete={activeWorkout ? handleMarkComplete : undefined}
+                onPrevWorkout={stepWorkout(-1)}
+                onNextWorkout={stepWorkout(1)}
               />
             }
           />

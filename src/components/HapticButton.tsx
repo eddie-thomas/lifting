@@ -31,27 +31,30 @@ export default function HapticButton({ onPress, wrapperSx, children, ...props }:
       <IconButton {...props} onClick={onPress}>
         {children}
       </IconButton>
-      <Box
-        component="label"
-        aria-hidden
-        sx={{
-          display: 'none',
-          '@media (hover: none)': { display: 'block' },
-          position: 'absolute',
-          inset: 0,
-          borderRadius: '50%',
-          cursor: 'pointer',
-          WebkitTapHighlightColor: 'transparent',
-        }}
-      >
-        <input
-          type="checkbox"
-          {...SWITCH}
-          tabIndex={-1}
-          onChange={handleSwitch}
-          style={{ position: 'absolute', width: 1, height: 1, margin: 0, opacity: 0, pointerEvents: 'none' }}
-        />
-      </Box>
+      {/* A disabled button gets no overlay, or a tap would still run the action. */}
+      {!props.disabled && (
+        <Box
+          component="label"
+          aria-hidden
+          sx={{
+            display: 'none',
+            '@media (hover: none)': { display: 'block' },
+            position: 'absolute',
+            inset: 0,
+            borderRadius: '50%',
+            cursor: 'pointer',
+            WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          <input
+            type="checkbox"
+            {...SWITCH}
+            tabIndex={-1}
+            onChange={handleSwitch}
+            style={{ position: 'absolute', width: 1, height: 1, margin: 0, opacity: 0, pointerEvents: 'none' }}
+          />
+        </Box>
+      )}
     </Box>
   )
 }
