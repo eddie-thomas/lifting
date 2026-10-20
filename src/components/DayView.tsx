@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react'
-import { Box, Button, Chip, IconButton, Paper, Stack, Typography } from '@mui/material'
+import { useEffect, useState, type ReactNode } from 'react'
+import { Box, Button, Chip, IconButton, Paper, Slide, Stack, Typography } from '@mui/material'
 import DirectionsRunRounded from '@mui/icons-material/DirectionsRunRounded'
 import HotelRounded from '@mui/icons-material/HotelRounded'
 import EventBusyRounded from '@mui/icons-material/EventBusyRounded'
@@ -16,6 +16,8 @@ interface Props {
   completedOrders: number[]
   /** The TimerPanel, rendered above the workout stack. */
   timer: ReactNode
+  /** The TimerBar, pinned under the nav bar while the timer panel is scrolled away. */
+  timerBar: ReactNode
   onStartWorkout: (workout: Workout) => void
   ran: boolean
   onToggleRan: () => void
@@ -44,6 +46,7 @@ export default function DayView({
   active,
   completedOrders,
   timer,
+  timerBar,
   onStartWorkout,
   ran,
   onToggleRan,
@@ -55,6 +58,28 @@ export default function DayView({
   const activeOrder = active?.date === date ? active.order : null
   const workouts = sortedWorkouts(day, activeOrder)
   const totalMinutes = workouts.reduce((sum, w) => sum + (w.duration || 0), 0)
+  const [timerEl, setTimerEl] = useState<HTMLElement | null>(null)
+  const [showBar, setShowBar] = useState(false)
+
+  // Show the bar once at least half the timer panel (about the play ring) has
+  // scrolled up behind the nav bar.
+  useEffect(() => {
+    if (!timerEl) return
+    // Measured rather than hard-coded so the iOS safe-area inset is included.
+    const navBottom = Math.round(document.querySelector('header')?.getBoundingClientRect().bottom ?? 0)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const above = entry.boundingClientRect.top < (entry.rootBounds?.top ?? navBottom)
+        setShowBar(above && entry.intersectionRatio < 0.5)
+      },
+      { rootMargin: `-${navBottom}px 0px 0px 0px`, threshold: [0, 0.5] },
+    )
+    observer.observe(timerEl)
+    return () => {
+      observer.disconnect()
+      setShowBar(false)
+    }
+  }, [timerEl])
 
   let body: ReactNode
   if (day?.rest_day) {
@@ -64,7 +89,24 @@ export default function DayView({
   } else {
     body = (
       <>
-        {timer}
+        <Box ref={setTimerEl}>{timer}</Box>
+        <Slide in={showBar} direction="down">
+          <Box
+            sx={{
+              position: 'fixed',
+              left: 0,
+              right: 0,
+              top: 'calc(56px + env(safe-area-inset-top))',
+              zIndex: (t) => t.zIndex.appBar - 1,
+              py: 1,
+              bgcolor: 'rgba(24, 24, 24, 0.92)',
+              backdropFilter: 'blur(8px)',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+            }}
+          >
+            {timerBar}
+          </Box>
+        </Slide>
         <Stack spacing={1.5}>
           {workouts.map((w) => (
             <WorkoutCard

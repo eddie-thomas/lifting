@@ -3,6 +3,7 @@ import { Alert, Box } from '@mui/material'
 import NavBar from './components/NavBar'
 import CalendarView from './components/CalendarView'
 import DayView from './components/DayView'
+import TimerBar from './components/TimerBar'
 import TimerPanel from './components/TimerPanel'
 import WeightCard from './components/WeightCard'
 import WeightDialog from './components/WeightDialog'
@@ -225,6 +226,17 @@ export default function App() {
             onToggleRan={() => toggleRan(route.date)}
             weight={weights[route.date]}
             onLogWeight={() => setWeighDate(route.date)}
+            timerBar={
+              <TimerBar
+                status={countdown.status}
+                alarming={alarming}
+                remainingMs={countdown.remainingMs}
+                caption={caption}
+                detail={activeWorkout ? `${activeWorkout.sets} sets · ${activeWorkout.reps} reps` : undefined}
+                onPlayPause={() => handlePlayPause(route.date)}
+                onScrollTop={scrollToTop}
+              />
+            }
             timer={
               <TimerPanel
                 status={countdown.status}
