@@ -12,10 +12,10 @@ type AudioSessionNavigator = Navigator & { audioSession?: { type: string } }
  */
 export function unlockAudio(): void {
   try {
-    // 'playback' keeps sounds audible with the iPhone silent switch on (at the
-    // cost of interrupting music from other apps).
+    // 'ambient' mixes our sounds with music from other apps instead of
+    // stopping it. The cost: the iPhone silent switch mutes them.
     const session = (navigator as AudioSessionNavigator).audioSession
-    if (session) session.type = 'playback'
+    if (session) session.type = 'ambient'
   } catch {
     // ignore
   }
